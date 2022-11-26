@@ -67,14 +67,30 @@ class _HomeState extends State<Home> {
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(20),
-              child: ListView(children: const [
-                ListTile(
-                  leading: FaIcon(FontAwesomeIcons.thermometerHalf),
-                  title: Text('Temperature'),
-                  trailing: Text('52\u00B0'),
-                  
-                )
-              ]),
+              child: ListView(
+                children: const [
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.thermometerHalf),
+                    title: Text('Temperature'),
+                    trailing: Text('52\u00B0'),
+                  ),
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.cloud),
+                    title: Text('Weather'),
+                    trailing: Text('Weather'),
+                  ),
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.sun),
+                    title: Text('TemperaHumidityture'),
+                    trailing: Text('12'),
+                  ),
+                  ListTile(
+                    leading: FaIcon(FontAwesomeIcons.wind),
+                    title: Text('Wind Speed'),
+                    trailing: Text('12'),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
