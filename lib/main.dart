@@ -18,15 +18,30 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   var temp;
   var description;
   var currently;
   var humidity;
   var windSpeed;
 
-  Future getWeather () async {
-    http.Response response = await http.get();
+  Future getWeather() async {
+    http.Response response = await http.get(Uri.parse(
+      "https://api.openweathermap.org/data/2.5/weather?q=Boston&appid=6fdd610ede812fd1e456076a025d776f",
+    ));
+    var results = jsonDecode(response.body);
+    setState(() {
+      this.temp = results['main']['temp'];
+      this.description = results['weather']['description'];
+      this.currently = results['weather']['main'];
+      this.humidity = results['main']['humidity'];
+      this.windSpeed = results['wind']['speed'];
+    });
+  }
+
+  @override 
+  void initState () {
+    super.initState();
+    this.getWeather();
   }
 
   @override
@@ -54,7 +69,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Text(
-                  "52\u00B0",
+                  "\u00B0",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 40,
