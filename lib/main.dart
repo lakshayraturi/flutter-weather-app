@@ -64,6 +64,19 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: ListView(children: const [
+                ListTile(
+                  leading: FaIcon(FontAwesomeIcons.thermometerHalf),
+                  title: Text('Temperature'),
+                  trailing: Text('52\u00B0'),
+                  
+                )
+              ]),
+            ),
+          ),
         ],
       ),
     );
